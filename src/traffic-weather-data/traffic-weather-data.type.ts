@@ -1,4 +1,4 @@
-export interface Location {
+export interface Coordinates {
   latitude: number;
   longitude: number;
 }
@@ -12,7 +12,7 @@ export interface ImageMetadata {
 export interface Camera {
   timestamp: string;
   image: string;
-  location: Location;
+  location: Coordinates;
   camera_id: string;
   image_metadata: ImageMetadata;
 }
@@ -66,12 +66,18 @@ export interface WeatherDataApiResponse {
   api_info: APIInfo;
 }
 
-export interface LocationForecast {
-  name: string;
-  forecast: string;
-  trafficImage: string;
+export interface TrafficImage {
+  image: string;
+  latitude: number;
+  longitude: number;
 }
 
-export interface ForecastData {
-  locationsResult: LocationForecast[];
+export interface Location {
+  name: string;
+  forecast: string;
+  trafficImage: TrafficImage[];
+}
+
+export interface LocationsResult {
+  locationsResult: Location[];
 }
