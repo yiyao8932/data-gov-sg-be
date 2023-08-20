@@ -1,4 +1,8 @@
 import axios from 'axios';
+import {
+  TrafficDataApiResponse,
+  WeatherDataApiResponse,
+} from './traffic-weather-data.type';
 
 export class TrafficAndWeatherService {
   /**
@@ -6,7 +10,7 @@ export class TrafficAndWeatherService {
    * @param date
    * @returns
    */
-  getTrafficData = async (date: string) => {
+  getTrafficData = async (date: string): Promise<TrafficDataApiResponse> => {
     return await axios
       .get(
         `https://api.data.gov.sg/v1/transport/traffic-images?date_time=${date}`,
@@ -19,7 +23,7 @@ export class TrafficAndWeatherService {
    * @param date
    * @returns
    */
-  getWeatherData = async (date: string) => {
+  getWeatherData = async (date: string): Promise<WeatherDataApiResponse> => {
     return await axios
       .get(
         `https://api.data.gov.sg/v1/environment/2-hour-weather-forecast?date_time=${date}`,
