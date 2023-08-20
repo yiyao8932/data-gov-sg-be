@@ -7,6 +7,6 @@ export class AppController {
 
   @Get('/traffic-and-weather-data')
   async getTrafficAndWeatherData(@Query('date') date: string): Promise<any> {
-    return await this.appService.getTrafficAndWeatherData(date);
+    return await this.appService.getAndProcessTrafficAndWeatherData(date);
   }
 }
