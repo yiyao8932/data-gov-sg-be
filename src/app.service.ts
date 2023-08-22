@@ -6,6 +6,7 @@ import {
   Location,
   TrafficImage,
 } from './traffic-weather-data/traffic-weather-data.type';
+import * as _ from 'lodash';
 
 @Injectable()
 export class AppService {
@@ -22,10 +23,14 @@ export class AppService {
     const cameras: Camera[] = trafficRawData.items[0].cameras;
     const locations: AreaMetadata[] = weatherRawData.area_metadata;
 
-    const locationsResult: Location[] = [];
+    let locationsResult: Location[] = [];
 
+    // Iterate through all the cameras and get the location
     for (let i = 0; i < cameras.length; i++) {
       const camera: Camera = cameras[i];
+
+      // We check the nearest location in weather API by calculating the distance between the camera location
+      // and the location listed in the weather API
       let nearestLocation: AreaMetadata;
       let minDifference: number = Number.MAX_SAFE_INTEGER;
       for (let j = 0; j < locations.length; j++) {
@@ -69,6 +74,7 @@ export class AppService {
         }
       }
     }
+    locationsResult = _.sortBy(locationsResult, ['name']);
 
     return { locationsResult };
   };
