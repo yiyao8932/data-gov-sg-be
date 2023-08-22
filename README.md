@@ -2,7 +2,7 @@
 
 This is the backend for Weather Forecast & Traffic Cam Website. The data is fetched from the Traffic Images API https://data.gov.sg/dataset/traffic-images and Weather Forecast https://data.gov.sg/dataset/weather-forecast
 
-The frontend instance from here `https://github.com/yiyao8932/data-gov-sg` is required to be up and running in order for the whole project to be working correctly
+The frontend instance from here https://github.com/yiyao8932/data-gov-sg is required to be up and running in order for the whole project to be working correctly
 
 The Traffic Images API contains images, latitude and longitude of the traffic cameras in Singapore.
 
